@@ -19,13 +19,22 @@ const getBooks = asyncErrorHandler(async (req, res) => {
 const getBookById = asyncErrorHandler(async (req, res) => {
   const book = await Book.findById(req.params.id);
   if (!book) {
-    return res.status(404).json({ success: false, message: "Book not found" });
+    throw { statusCode: 404, message: "Book not found" };
   }
   res.status(200).json({ success: true, data: book });
 });
 
 const createBook = asyncErrorHandler(async (req, res) => {
   const { title, author, publicationYear } = req.body;
+  const existingBook = await Book.findOne({ title });
+
+  if (existingBook) {
+    throw {
+      statusCode: 400,
+      message: "A book with the same title already exists",
+      success: false,
+    };
+  }
   const book = await Book.create({ title, author, publicationYear });
   res.status(201).json({ success: true, data: book });
 });
@@ -34,7 +43,7 @@ const updateBook = asyncErrorHandler(async (req, res) => {
   const { title, author, publicationYear } = req.body;
   let book = await Book.findById(req.params.id);
   if (!book) {
-    return res.status(404).json({ success: false, message: "Book not found" });
+    throw { statusCode: 404, message: "Book not found" };
   }
   book.title = title;
   book.author = author;
@@ -46,7 +55,7 @@ const updateBook = asyncErrorHandler(async (req, res) => {
 const deleteBook = asyncErrorHandler(async (req, res) => {
   const book = await Book.findById(req.params.id);
   if (!book) {
-    return res.status(404).json({ success: false, message: "Book not found" });
+    throw { statusCode: 404, message: "Book not found" };
   }
   await book.remove();
   res.status(200).json({ success: true, message: "Book deleted" });

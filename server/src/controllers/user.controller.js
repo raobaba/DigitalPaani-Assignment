@@ -6,9 +6,7 @@ const registerUser = asyncErrorHandler(async (req, res, next) => {
   const { name, email, gender, password } = req.body;
   const userExist = await User.findOne({ email });
   if (userExist) {
-    return res
-      .status(401)
-      .json({ message: "User with this email already exits", status: 400 });
+    throw { message: "User with this email already exits", status: 400 };
   }
 
   const user = await User.create({
@@ -23,9 +21,7 @@ const registerUser = asyncErrorHandler(async (req, res, next) => {
 const loginUser = asyncErrorHandler(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email) {
-    return res
-      .status(401)
-      .json({ message: "Please Enter Your Email", status: 400 });
+    throw { message: "Please Enter Your Email", status: 400 };
   }
 
   if (!password) {
@@ -36,11 +32,11 @@ const loginUser = asyncErrorHandler(async (req, res, next) => {
 
   const user = await User.findOne({ email }).select("+password");
   if (!user) {
-    return res.status(401).json({ message: "Invalid Email", status: 401 });
+    throw { message: "Invalid Email", status: 401 };
   }
   const isPasswordMatched = await user.comparePassword(password);
   if (!isPasswordMatched) {
-    return res.status(401).json({ message: "Incorrect Password", status: 401 });
+    throw { message: "Incorrect Password", status: 401 };
   }
   sendToken(user, 201, res);
 });
