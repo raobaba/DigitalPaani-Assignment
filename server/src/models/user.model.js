@@ -7,9 +7,9 @@ const crypto = require('crypto');
 const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
-    fullname: {
+    name: {
         type: String,
-        required: [true, "Please Enter Your FullName"],
+        required: [true, "Please Enter Your Name"],
     },
     email: {
         type: String,
@@ -27,15 +27,6 @@ const userSchema = new Schema({
         minlength: [8, "Password should have at least 8 characters"],
         select: false,
     },
-    role: {
-        type: String,
-        default: "user",
-    },
-    isAdmin: {
-        type: Boolean,
-        required: true,
-        default: false,
-      },
     createdAt: {
         type: Date,
         default: Date.now,
@@ -60,12 +51,6 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 }
 
-userSchema.methods.getResetPasswordToken = async function () {
-    const resetToken = crypto.randomBytes(20).toString("hex");
-    this.resetPasswordToken = crypto.createHash("sha256").update(resetToken).digest("hex");
-    this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
-    return resetToken;
-}
 
 const User = model('User', userSchema);
 
