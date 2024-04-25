@@ -46,6 +46,7 @@ const logoutUser = asyncErrorHandler(async (req, res, next) => {
     expires: new Date(Date.now()),
     httpOnly: true,
   });
+  res.setHeader("Authorization", "");
   res.status(200).json({
     success: true,
     message: "Successfully logout",

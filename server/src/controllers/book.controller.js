@@ -41,23 +41,18 @@ const createBook = asyncErrorHandler(async (req, res) => {
 
 const updateBook = asyncErrorHandler(async (req, res) => {
   const { title, author, publicationYear } = req.body;
-  let book = await Book.findById(req.params.id);
-  if (!book) {
+  const updatedBook = await Book.findByIdAndUpdate(req.params.id, { title, author, publicationYear }, { new: true });
+  if (!updatedBook) {
     throw { statusCode: 404, message: "Book not found" };
   }
-  book.title = title;
-  book.author = author;
-  book.publicationYear = publicationYear;
-  book = await book.save();
-  res.status(200).json({ success: true, data: book });
+  res.status(200).json({ success: true, data: updatedBook });
 });
 
 const deleteBook = asyncErrorHandler(async (req, res) => {
-  const book = await Book.findById(req.params.id);
-  if (!book) {
+  const deletedBook = await Book.findByIdAndDelete(req.params.id);
+  if (!deletedBook) {
     throw { statusCode: 404, message: "Book not found" };
   }
-  await book.remove();
   res.status(200).json({ success: true, message: "Book deleted" });
 });
 
