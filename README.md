@@ -31,6 +31,8 @@ DigitalPaani-Assignment/
    │  └─ (public assets)
    ├─ src/
    │  └─ (React components, styles, and logic)
+``` ````
+
 
 
 ## Video Walkthrough of the project
