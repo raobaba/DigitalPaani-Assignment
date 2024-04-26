@@ -23,7 +23,6 @@ Frontend & Backend
 
 ## Deplolyed App
 ```bash
-
 Frontend: https://deployed-site.whatever
 Backend: https://deployed-site.whatever
 Database: mongodb+srv://YOUR_USERNAME:YUOR_PASSWORD@cluster0.vvtoxbl.mongodb.net/DigitalPaani?retryWrites=true&w=majority
