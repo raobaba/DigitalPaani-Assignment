@@ -107,9 +107,9 @@ Provide instructions and examples on how to use your project.
 # Example
 ```
 
+## Credentials
 Include screenshots as necessary.
 ```bash
-## Credentials
 # MongoURL
 mongoURL= YOUR_MONGODB_URL_HERE
 # PORT
@@ -126,7 +126,6 @@ JWT_EXPIRE=2h
 If your application relies on external APIs, document them and include any necessary links or references.
 
 ## API Endpoints
-
 ### User Management:
 - `POST /api/v1/users/register`: Register a new user.
 - `POST /api/v1/users/login`: User login.
@@ -142,8 +141,6 @@ If your application relies on external APIs, document them and include any neces
 
 
 ## Technology Stack
-List and provide a brief overview of the technologies used in the project.
-
 - Node.js
 - Express.js
 - MongoDB
