@@ -58,8 +58,6 @@ Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
 Attach a very short video walkthough of codebase [ 1 - 5 minutes ]
 
 ## Features
-List out the key features of your application.
-
 - Create a Node.js book management API with user authentication, CRUD operations for books, filtering by author/year, and robust security measures. Document API endpoints clearly.
 - Develop a React weather dashboard with city search, displaying temperature, humidity, and wind speed. Ensure responsiveness for desktop and mobile. Share GitHub link with setup instructions.
 
