@@ -20,11 +20,12 @@ Weather_app & Book_Management_app
 
 ## Project Type
 Frontend & Backend 
-
+```bash
 ## Deplolyed App
 Frontend: https://deployed-site.whatever
 Backend: https://deployed-site.whatever
-Database: https://deployed-site.whatever
+Database: mongodb+srv://YOUR_USERNAME:YUOR_PASSWORD@cluster0.vvtoxbl.mongodb.net/DigitalPaani?retryWrites=true&w=majority
+```
 ```bash
 ## Directory Structure
 DigitalPaani-Assignment/
