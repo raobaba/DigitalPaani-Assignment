@@ -11,7 +11,7 @@ Frontend & Backend
 Frontend: https://deployed-site.whatever
 Backend: https://deployed-site.whatever
 Database: https://deployed-site.whatever
-
+```bash
 ## Directory Structure
 DigitalPaani-Assignment/
 ├─ book_management/
@@ -31,7 +31,7 @@ DigitalPaani-Assignment/
    │  └─ (public assets)
    ├─ src/
    │  └─ (React components, styles, and logic)
-``` ````
+```
 
 
 
