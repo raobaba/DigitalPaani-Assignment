@@ -1,8 +1,22 @@
 # Project Title
 Weather_app & Book_Management_app
+
 ## Introduction
-Book_Management:-Developed a book management API using Node.js, offering user authentication, CRUD operations for book entries, and filtering by author/publication year. Included clear API documentation and basic security measures for input validation.
-Weather_app:- Created a React weather dashboard with city search, displaying current weather details. Responsive design for desktop and mobile. GitHub repo includes setup instructions.
+
+### Book Management API
+- Developed a book management API using Node.js.
+- Features user authentication and authorization.
+- Provides CRUD operations for book entries.
+- Offers filtering by author and publication year.
+- Includes clear API documentation.
+- Implements basic security measures for input validation.
+
+### Weather App
+- Created a React weather dashboard.
+- Allows users to search for weather details by city.
+- Features responsive design for both desktop and mobile.
+- GitHub repository includes setup instructions.
+
 
 ## Project Type
 Frontend & Backend 
