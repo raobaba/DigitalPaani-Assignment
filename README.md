@@ -92,22 +92,19 @@ Provide instructions and examples on how to use your project.
 ```
 
 Include screenshots as necessary.
-
+```bash
 ## Credentials
 # MongoURL
 mongoURL= YOUR_MONGODB_URL_HERE
-
 # PORT
 PORT=8000
 NODE_ENV=development
-
 # Cookie expiry
 COOKIE_EXPIRE=5
-
 # JWT secret and expiry
 JWT_SECRET=YOUR_JWT_SECRET_HERE
 JWT_EXPIRE=2h
-
+```
 
 ## APIs Used
 If your application relies on external APIs, document them and include any necessary links or references.
