@@ -29,7 +29,7 @@ Database: mongodb+srv://YOUR_USERNAME:YUOR_PASSWORD@cluster0.vvtoxbl.mongodb.net
 ```
 ## Postman API
  ```bash
-[Postman API Testing](https://www.getpostman.com/)
+[Postman API Testing](https://universal-star-350473.postman.co/workspace/My-Workspace~44391309-b21a-4654-829d-81bea0efc5df/collection/30678801-77db6517-e2eb-47ed-8165-f6dce02b3c35?action=share&creator=30678801)
 ```
 ## Directory Structure
 ```bash
