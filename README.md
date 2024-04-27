@@ -1,9 +1,9 @@
 # Project Title
 Weather_app & Book_Management_app
 ## Swagger-OPENAPI-Documentation
-```bash
-[Postman API Testing](https://digitalpaani-book-management.onrender.com/api-docs/)
-```
+
+[Swagger Documentation](https://digitalpaani-book-management.onrender.com/api-docs/)
+
 ## Introduction
 
 ### Book Management API
