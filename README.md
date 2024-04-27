@@ -1,5 +1,8 @@
 # Project Title
 Weather_app & Book_Management_app
+## Swagger-OPENAPI-Documentation
+
+[Swagger Documentation](https://digitalpaani-book-management.onrender.com/api-docs/)
 
 ## Introduction
 
