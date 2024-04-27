@@ -72,7 +72,7 @@ function WeatherForecast() {
             <br />
             <span className="text-sm font-medium">{forecast.day}</span>
           </div>
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center mb-2">
             <div className="ml-2 flex">
               <svg
                 class="w-6 h-6 mt-2 mr-5 text-gray-800 dark:text-white"
@@ -95,7 +95,7 @@ function WeatherForecast() {
               </span>
             </div>
           </div>
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center mb-2">
             <div className="ml-2 flex">
               <svg
                 class="w-6 h-6 mt-2 mr-5 text-gray-800 dark:text-white"
