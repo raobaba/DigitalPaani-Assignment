@@ -41,20 +41,36 @@ DigitalPaani-Assignment/
 ├─ book_management/
    ├─ src/
    │  ├─ config/
-   │  │  └─ (configuration files)
+   │  │  └─ db.js
    │  ├─ models/
-   │  │  └─ (database models)
+   │  │  └─ user.model.js
+   │  │  └─ book.model.js
    │  ├─ controllers/
-   │  │  └─ (controller logic)
+   │  │  └─ user.contorller.js
+   │  │  └─ book.controller.js
    │  ├─ routes/
-   │  │  └─ (API route definitions)
+   │  │  └─ user.route.js
+   │  │  └─ book.route.js
    │  ├─ app.js
    │  └─ index.js
 ├─ weather_app/
    ├─ public/
    │  └─ (public assets)
    ├─ src/
-   │  └─ (React components, styles, and logic)
+   │  ├─ components/
+   │  │  └─ Details.jsx
+   │  │  └─ Navbar.jsx
+   │  │  └─ WeatherForecase.jsx
+   │  ├─ context/
+   │  │  └─ ContextProvider.jsx
+   │  ├─ service/
+   │  │  └─ API.js
+   │  └─ App.css
+   │  └─ App.js
+   │  └─ Index.css
+   │  └─ Index.js
+   └─ package-lock.json
+   └─ package.json
 ```
 
 
