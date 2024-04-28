@@ -123,7 +123,7 @@ function WeatherForecast() {
           </div>
           <div className="text-center">
             <a
-              href="#"
+              href="http://localhost:8000"
               className="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300 ease-in-out"
             >
               View Details

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { useWeather } from "../context/ContextProvider";
+import { googleMapAPI } from "../service/API";
 function Details() {
   const [rotation, setRotation] = useState(0);
   const [scale, setScale] = useState(1);
-
+  const { weatherData } = useWeather();
   const handleRefreshClick = () => {
     setRotation(rotation + 360);
   };
@@ -17,6 +18,10 @@ function Details() {
       setScale(scale - 0.1);
     }
   };
+
+  const weather = JSON.parse(localStorage.getItem("weather")) || weatherData || {};
+  console.log(weather);
+
   return (
     <div className="flex flex-wrap justify-center">
       <div className="relative flex flex-col items-center max-w-sm m-4 p-10 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -44,13 +49,15 @@ function Details() {
           </svg>
         </button>
 
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Patna
+        <h5 className="mb-2 text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+          {weather?.weatherData?.name ||"City Name"}
         </h5>
         <p className="text-gray-700 dark:text-gray-400 font-bold text-6xl">
-          50 ° Cel
+          {Math.round(weather?.weatherData?.main.temp - 273 || "30")} ° Cel
         </p>
-        <p className="text-gray-700 dark:text-gray-400">Haze</p>
+        <p className="text-gray-700 dark:text-gray-400">
+          {weather?.weatherData?.weather[0].main || "23"}
+        </p>
       </div>
 
       <div class="flex flex-col items-center max-w-sm m-4 p-10 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -58,38 +65,62 @@ function Details() {
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             Feels Like
           </p>
-          <p class="text-right text-gray-600 dark:text-gray-300">39.61°C</p>
+          <p class="text-right text-gray-600 dark:text-gray-300">
+            {weather?.weatherData?.main.feels_like || "432"}
+          </p>
           <p class="font-semibold text-gray-800 dark:text-gray-200">Humidity</p>
-          <p class="text-right text-gray-600 dark:text-gray-300">16%</p>
+          <p class="text-right text-gray-600 dark:text-gray-300">
+            {weather?.weatherData?.main.humidity || "32"}
+          </p>
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             Wind Speed
           </p>
-          <p class="text-right text-gray-600 dark:text-gray-300">20.38 Km/h</p>
+          <p class="text-right text-gray-600 dark:text-gray-300">
+            {weather?.weatherData?.wind.speed || " 32"}
+          </p>
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             Visibility
           </p>
-          <p class="text-right text-gray-600 dark:text-gray-300">5.00 Km</p>
+          <p class="text-right text-gray-600 dark:text-gray-300">
+            {weather?.weatherData?.visibility || "32"}
+          </p>
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             Max Temp.
           </p>
-          <p class="text-right text-gray-600 dark:text-gray-300">41.11°C</p>
+          <p class="text-right text-gray-600 dark:text-gray-300">
+            {weather?.weatherData?.main.temp_max ||"23"}
+          </p>
           <p class="font-semibold text-gray-800 dark:text-gray-200">Min Temp</p>
-          <p class="text-right text-gray-600 dark:text-gray-300">41.11°C</p>
+          <p class="text-right text-gray-600 dark:text-gray-300">
+            {weather?.weatherData?.main.temp_min || "223"}
+          </p>
         </div>
       </div>
 
       <div className="w-64 m-4 p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 relative">
         <div className="absolute top-0 right-0 m-2 z-10">
-          <button onClick={zoomIn} className="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">+</button>
-          <button onClick={zoomOut} className="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">-</button>
+          <button
+            onClick={zoomIn}
+            className="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
+            +
+          </button>
+          <button
+            onClick={zoomOut}
+            className="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
+            -
+          </button>
         </div>
         <div className="relative overflow-hidden">
-          <img
-            src="./temp_map.png"
-            alt="temp-map"
-            style={{ transform: `scale(${scale})` }}
-            className="w-full h-auto"
-          />
+        <iframe
+                width="100%"
+                height="300"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps/embed/v1/place?key=${googleMapAPI}&q=${weather?.weatherData?.name ||"Delhi"}`}>
+            </iframe>
         </div>
       </div>
     </div>
