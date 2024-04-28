@@ -26,7 +26,7 @@ Frontend & Backend
 
 ## Deplolyed App
 ```bash
-Frontend: https://deployed-site.whatever
+Frontend: https://digitalpaani-weather.netlify.app/
 Backend: https://digitalpaani-book-management.onrender.com/
 Database: mongodb+srv://YOUR_USERNAME:YUOR_PASSWORD@cluster0.vvtoxbl.mongodb.net/DigitalPaani?retryWrites=true&w=majority
 ```
